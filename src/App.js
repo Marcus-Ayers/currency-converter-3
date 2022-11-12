@@ -77,7 +77,7 @@ useEffect(() => {
       <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
   <a className="navbar-brand justify-content-center d-flex w-100" href="!#">Currency Converter</a>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span className="navbar-toggler-icon"></span>
+    <span className=""></span>
   </button>
 
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -89,7 +89,7 @@ useEffect(() => {
 {/* CONTENT */}
 <div className="container">
   <div className="row">
-    <div className="col">
+    <div className="col-md-4 col-sm-12">
     <div className="left"> 
   <h3>Amount</h3> 
   <input type="text" 
@@ -98,7 +98,7 @@ useEffect(() => {
       /> 
 </div> 
     </div>
-    <div className="col">
+    <div className="col-md-3 col-sm-12">
     <div className="middle"> 
   <h3>From</h3> 
   <Dropdown options={options}  
@@ -106,14 +106,13 @@ useEffect(() => {
   value={from} placeholder="From" /> 
 </div> 
     </div>
-    <div className="col-1 mt-auto mb-1">
+    <div className="col-md-1 col-sm-12 mt-auto mb-1">
     <div className="switch"> 
   <HiSwitchHorizontal size="30px" 
                 onClick={() => { flip()}}/> 
 </div> 
     </div>
-    <div className="col">
-
+    <div className="col-md-3 col-sm-12">
 <div className="right"> 
   <h3>To</h3> 
   <Dropdown options={options}  
@@ -123,7 +122,7 @@ useEffect(() => {
     </div>
   </div>
   <div className="row">
-    <div className="col">
+    <div className="col-md-12 col-sm-12">
     <div className="result"> 
     <h2 className='mt-4'>Converted Amount:</h2> 
     <p>{input+" "+from+" = "+output.toFixed(2) + " " + to}</p> 
@@ -207,7 +206,7 @@ useEffect(() => {
   {/* <!-- Copyright --> */}
   <div className="text-center p-3 text-black" style={{backgrounColor: "#0082ca"}}>
    
-    <a className="text-black" href="https://www.altcademy.com/">AltCademy</a>
+    <a className="text-black" target="blank" href="https://www.altcademy.com/">AltCademy</a>
   </div>
   {/* <!-- Copyright --> */}
 </footer>
