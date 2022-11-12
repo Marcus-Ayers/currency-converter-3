@@ -8,6 +8,7 @@ import 'react-dropdown/style.css';
 
 
 
+
 function App() {
   const [info, setInfo] = useState([]); 
   const [input, setInput] = useState(0); 
@@ -74,7 +75,7 @@ useEffect(() => {
     // NAVBAR
     <div className="App">
       <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
-  <a className="navbar-brand justify-content-center d-flex w-100" href="#">Currency Converter</a>
+  <a className="navbar-brand justify-content-center d-flex w-100" href="!#">Currency Converter</a>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
@@ -142,16 +143,18 @@ useEffect(() => {
       </div>
     </div>
 </div>
-<footer className="bg-light text-center text-white">
+<footer className="bg-light text-center text-white mt-5">
   <div className="container p-4 pb-0">
     {/* <!-- Section: Social media --> */}
-    <section className="mb-4">
+    <section className="">
       {/* <!-- Facebook --> */}
       <a
         className="btn text-white btn-floating m-1"
         style={{backgroundColor: "#3b5998"}}
-        href="#!"
+        href="https://www.facebook.com/marcus.ayers.712"
         role="button"
+        target="blank"
+
         ><i className="fab fa-facebook-f"></i
       ></a>
 
@@ -159,26 +162,21 @@ useEffect(() => {
       <a
         className="btn text-white btn-floating m-1"
         style={{backgroundColor: "#55acee"}}
-        href="#!"
+        href="https://twitter.com/BoringTempFiles/likes"
         role="button"
-        ><i className="fab fa-twitter"></i
-      ></a>
+        target="blank"
 
-      {/* <!-- Google --> */}
-      <a
-        className="btn text-white btn-floating m-1"
-        style={{backgroundColor: "#dd4b39"}}
-        href="#!"
-        role="button"
-        ><i className="fab fa-google"></i
+        ><i className="fab fa-twitter"></i
       ></a>
 
       {/* <!-- Instagram --> */}
       <a
         className="btn text-white btn-floating m-1"
         style={{backgroundColor: "#ac2bac"}}
-        href="#!"
+        href="https://www.instagram.com/maarrcc__4/"
         role="button"
+        target="blank"
+
         ><i className="fab fa-instagram"></i
       ></a>
 
@@ -186,16 +184,19 @@ useEffect(() => {
       <a
         className="btn text-white btn-floating m-1"
         style={{backgroundColor: "#0082ca"}}
-        href="#!"
+        href="https://www.linkedin.com/in/marcus-ayers-330518219/"
         role="button"
+        target="blank"
+
         ><i className="fab fa-linkedin-in"></i
       ></a>
       {/* <!-- Github --> */}
       <a
         className="btn text-white btn-floating m-1"
         style={{backgroundColor: "#333333"}}
-        href="#!"
+        href="https://github.com/Marcus-Ayers"
         role="button"
+        target="blank"
         ><i className="fab fa-github"></i
       ></a>
     </section>
@@ -205,8 +206,8 @@ useEffect(() => {
 
   {/* <!-- Copyright --> */}
   <div className="text-center p-3 text-black" style={{backgrounColor: "#0082ca"}}>
-    © 2020 Copyright:
-    <a className="text-black" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+   
+    <a className="text-black" href="https://www.altcademy.com/">AltCademy</a>
   </div>
   {/* <!-- Copyright --> */}
 </footer>
