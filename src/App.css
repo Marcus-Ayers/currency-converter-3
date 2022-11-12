@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+.navbar-scroll .nav-link,
+.navbar-scroll .navbar-toggler-icon,
+.navbar-scroll .navbar-brand {
+  color: #fff;
+}
+
+.navcc {
+  display: flex;
+  justify-content: center;
+}
+
+.list {
+  background-color: #75829c5f;
+  max-width: 30%;
+  border-radius: 1rem;
+}
