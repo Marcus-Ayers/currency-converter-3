@@ -6,9 +6,6 @@ import { HiSwitchHorizontal } from 'react-icons/hi';
 import 'react-dropdown/style.css'; 
 
 
-
-
-
 function App() {
   const [info, setInfo] = useState([]); 
   const [input, setInput] = useState(0); 
@@ -16,20 +13,9 @@ function App() {
   const [to, setTo] = useState("eur"); 
   const [options, setOptions] = useState([]); 
   const [output, setOutput] = useState(0); 
-  const [list, setList] = useState('usd')
-  const [list2, setList2] = useState([])
 
-//console.log(info)
-//console.log(list2);
-useEffect(() => { 
-  Axios.get( 
-`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${list}.json`) 
- .then((res) => { 
-    setList2(res.data[list]); 
-  }) 
-}, [list]); 
 
-  //  Calling the api whenever the dependency changes 
+  //Use effects to update the screen and call the api when things are changed
    useEffect(() => { 
     Axios.get( 
 `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${from}.json`) 
@@ -37,18 +23,18 @@ useEffect(() => {
       setInfo(res.data[from]); 
     }) 
   }, [from]); 
-  // Calling the convert function whenever 
-  // a user switches the currency 
+
   useEffect(() => { 
     setOptions(Object.keys(info)); 
     convert(); 
   }, [info]) 
-  //Changing the output when the currency changes
+
   useEffect(() => {
     var rate = info[to]
     setOutput(input * rate)
   })
-  // Function to convert the currency 
+  
+  //CONVERTS THE CURRENCY
   function convert() { 
     var rate = info[to]; 
     //var rate = info.eur
@@ -56,20 +42,12 @@ useEffect(() => {
     setOutput(input * rate); 
   } 
   
-  // Function to switch between two currency 
+  //FLIPS THE 2 SELECTED CURRENCIES
   function flip() { 
     var temp = from; 
     setFrom(to); 
     setTo(temp); 
   } 
-  function handleChange(e) {
-     var x = e.target.value
-    setInput(x)
-    console.log("x = " + x + " input = " + input)
-    var rate = info[to]
-    setOutput(x * rate)
-    
-  }
   
   return (
     // NAVBAR
@@ -86,7 +64,7 @@ useEffect(() => {
   </div>
 </nav>
 
-{/* CONTENT */}
+    {/* CONTENT */}
 <div className="container">
   <div className="row">
     <div className="col-md-4 col-sm-12">
@@ -94,7 +72,7 @@ useEffect(() => {
   <h3>Amount</h3> 
   <input type="text" 
      placeholder="Enter the amount" 
-     onChange={(e) => {setInput(e.target.value); handleChange(e)}}
+     onChange={(e) => {setInput(e.target.value); }}
       /> 
 </div> 
     </div>
@@ -130,6 +108,8 @@ useEffect(() => {
     </div>
   </div>
 </div>
+
+    {/* LIST OF POPULAR CURRENCIES */}
         <h3 className='mt-4 mb-2'>Popular Currencies</h3>
 <div className='container list'>
     <div className='row'>
