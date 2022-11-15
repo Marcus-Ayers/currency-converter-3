@@ -53,17 +53,14 @@
   border-radius: 1rem;
 }
 
-@media (max-width:767px){
+@media (max-width: 767px) {
   .col-sm-12 {
-       margin-top: 25px !important;
-
+    margin-top: 25px !important;
   }
 }
 
-
-@media (max-width:767px){
+@media (max-width: 767px) {
   .list {
-       max-width: 75%;
-       
+    max-width: 75%;
   }
 }
