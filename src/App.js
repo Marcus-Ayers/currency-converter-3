@@ -63,10 +63,9 @@ function App() {
     .toISOString()
     .split("T")[0];
 
-  //Use effect to convert the currency and update the graph
+  // Use effect to convert the currency and update the graph
   useEffect(() => {
     convert();
-    console.log("here");
     axios
       .get(
         `https://api.frankfurter.app/${startDate}..${endDate}?from=${from}&to=${to}`
@@ -89,19 +88,41 @@ function App() {
           ],
         });
       });
-  }, [data]);
+  }, [to, from, input, output, info, options]);
 
   //CONVERTS THE CURRENCY
   function convert() {
-    var rate = info[to];
-    setOutput(input * rate);
+    console.log("Here");
+    if (info.length === 0 || info[to] == undefined) {
+      //console.log(info);
+      setOutput(0);
+    } else {
+      var rate = info[to];
+      setOutput(input * rate);
+    }
+  }
+  //CONVERTS THE CURRENCY IN THE POPULAR CURRENCIES BOX
+  function convert2(currency) {
+    if (info.length === 0 || input === undefined) {
+      return "0 = ";
+    } else {
+      if (currency == undefined) {
+        return input + " " + from + " = " + input;
+      } else {
+        return input + " " + from + " = " + (currency * input).toFixed(2);
+      }
+    }
   }
 
   //FLIPS THE 2 SELECTED CURRENCIES
   function flip() {
-    var temp = from;
-    setFrom(to);
-    setTo(temp);
+    if (output === NaN) {
+      setOutput(0);
+    } else {
+      var temp = from;
+      setFrom(to);
+      setTo(temp);
+    }
   }
 
   return (
@@ -196,46 +217,11 @@ function App() {
       <div className="container list">
         <div className="row">
           <div className="col">
-            <p>
-              {input +
-                " " +
-                from +
-                " = " +
-                (info.EUR * input).toFixed(2) +
-                " Euros"}
-            </p>
-            <p>
-              {input +
-                " " +
-                from +
-                " = " +
-                (info.JPY * input).toFixed(2) +
-                " Japanese Yen"}
-            </p>
-            <p>
-              {input +
-                " " +
-                from +
-                " = " +
-                (info.GBP * input).toFixed(2) +
-                " British Pounds"}
-            </p>
-            <p>
-              {input +
-                " " +
-                from +
-                " = " +
-                (info.AUD * input).toFixed(2) +
-                " Australian Dollars"}
-            </p>
-            <p>
-              {input +
-                " " +
-                from +
-                " = " +
-                (info.CAD * input).toFixed(2) +
-                " Canadian Dollars"}
-            </p>
+            <p>{convert2(info.EUR) + " Euros"}</p>
+            <p>{convert2(info.JPY) + " Japanese Yen"}</p>
+            <p>{convert2(info.GBP) + " British Pounds"}</p>
+            <p>{convert2(info.AUD) + " Australian Dollars"}</p>
+            <p>{convert2(info.CAD) + " Canadian Dollars"}</p>
           </div>
         </div>
       </div>
